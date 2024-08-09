@@ -59,7 +59,7 @@ p + geom_signif(
   comparisons = list(
     c("B", "A"),
     c("C", "A"),
-    c("D", "DA")
+    c("D", "A")
   ),
   map_signif_level = TRUE,
   annotations = summary_data$p.value[summary_data$Category != "A"],
