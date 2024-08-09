@@ -29,7 +29,7 @@ anova_results <- summary_data %>%
   }) %>%
   filter(term != "(Intercept)") %>%
   mutate(Category = gsub("Category", "", term)) %>%
-  filter(Category != "DMSO") %>%
+  filter(Category != "A") %>%
   rename(p.value = p.value) %>%
   select(Measurement, Category, p.value)
 
@@ -49,7 +49,7 @@ p <- ggplot(summary_data, aes(x = Category, y = Mean, fill = Measurement)) +
   geom_errorbar(aes(ymin = Mean - SE, ymax = Mean + SE),
                 position = position_dodge(0.9),
                 width = 0.25) +
-  labs(title = "Comparison of MGV/%Blue and %Red/%Blue by Category",
+  labs(title = "Comparison of 1.1 and 1.2 by Category",
        x = "Category",
        y = "Mean Value ± SE") +
   theme_minimal()
@@ -57,12 +57,12 @@ p <- ggplot(summary_data, aes(x = Category, y = Mean, fill = Measurement)) +
 # Add significance annotations
 p + geom_signif(
   comparisons = list(
-    c("FADS1", "DMSO"),
-    c("FADS2", "DMSO"),
-    c("FADS1+2", "DMSO")
+    c("B", "A"),
+    c("C", "A"),
+    c("D", "DA")
   ),
   map_signif_level = TRUE,
-  annotations = summary_data$p.value[summary_data$Category != "DMSO"],
+  annotations = summary_data$p.value[summary_data$Category != "A"],
   tip_length = 0.01
 )
 
