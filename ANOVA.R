@@ -7,7 +7,7 @@ library(ggsignif)
 # Manually input the data
 data <- data.frame(
   Category = factor(rep(c("A", "B", "C", "D"), each = 2)),
-  Measurement = factor(rep(c("MGV/%Blue", "%Red/%Blue"), times = 4)),
+  Measurement = factor(rep(c("1.1", "1.2"), times = 4)),
   Value = c(1, 2, 3, 4)
 )
 
