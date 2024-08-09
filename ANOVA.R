@@ -6,12 +6,9 @@ library(ggsignif)
 
 # Manually input the data
 data <- data.frame(
-  Category = factor(rep(c("DMSO", "FADS1", "FADS2", "FADS1+2"), each = 2)),
+  Category = factor(rep(c("A", "B", "C", "D"), each = 2)),
   Measurement = factor(rep(c("MGV/%Blue", "%Red/%Blue"), times = 4)),
-  Value = c(2.52, 1.45, 2.88, 1.56, 2.44, 1.43, 2.26, 1.57,
-            2.88, 1.54, 2.27, 1.36, 2.77, 1.55, 1.69, 0.89,
-            2.09, 0.93, 1.94, 0.87, 1.15, 0.50, 1.90, 0.89,
-            1.57, 0.72, 1.43, 0.60, 1.24, 0.50, 2.05, 0.85)
+  Value = c(1, 2, 3, 4)
 )
 
 # Calculate means and standard errors
